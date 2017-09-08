@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin">54dp</dimen>
+    <dimen name="h1">24sp</dimen>
+    <dimen name="h2">18sp</dimen>
+    <dimen name="logo">150dp</dimen>
+    <dimen name="text_feild">250dp</dimen>
+    <dimen name="padding">15dp</dimen>
+</resources>
