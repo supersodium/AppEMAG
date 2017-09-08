@@ -23,6 +23,7 @@
 
         <!--User-->
         <EditText
+            android:id="@+id/edtuser"
             android:hint="@string/user"
             android:inputType="text"
             android:layout_width="@dimen/text_feild"
@@ -30,13 +31,15 @@
 
         <!--Password-->
         <EditText
-            android:hint="@string/password"
-            android:inputType="textPassword"
+            android:id="@+id/edtPassword"
             android:layout_width="@dimen/text_feild"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
 
         <!--New Register-->
         <TextView
+            android:id="@+id/textNewRegister"
             android:textColor="@color/colorAccent"
             android:clickable="true"
             android:textStyle="bold"
@@ -47,6 +50,7 @@
 
         <!--Button Login-->
         <Button
+            android:id="@+id/btnLogin"
             android:text="login"
             android:layout_width="@dimen/text_feild"
             android:layout_height="wrap_content" />
