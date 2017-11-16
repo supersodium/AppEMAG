@@ -9,10 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import m.cheewa.appemag.MainActivity;
 import m.cheewa.appemag.R;
 import m.cheewa.appemag.utility.MyAlert;
+import m.cheewa.appemag.utility.MyConstant;
+import m.cheewa.appemag.utility.PostUserToServer;
 
 /**
  * Created by User on 8/9/2560.
@@ -78,11 +81,51 @@ public class SignUpFragment extends Fragment {
                     MyAlert myAlert = new MyAlert(getActivity());
                     myAlert.normalDialog(getString(R.string.title_have_space),getString(R.string.message_have_space));
 
+                } else if (idStudentString.length() == 8) {
+//                    id Student True
+                    uploadUsertoServer();
+
+                } else {
+
+//                    id Student False
+                    MyAlert myAlert = new MyAlert(getActivity());
+                    myAlert.normalDialog("ID Student false",
+                            "ID Student is 8 digi ?");
                 }
 
 
             }   //onClick
         });
+    }
+
+    private void uploadUsertoServer() {
+
+        try {
+
+
+            MyConstant myConstant = new MyConstant();
+            PostUserToServer postUserToServer = new PostUserToServer(getActivity());
+            postUserToServer.execute(nameString, surnameString, idStudentString, userString, passwordString, myConstant.getUrlPostUserString());
+
+            if (Boolean.parseBoolean(postUserToServer.get())) {
+                // True
+                getActivity().getSupportFragmentManager().popBackStack();
+                Toast.makeText(getActivity(),"Upload Success",Toast.LENGTH_SHORT).show();
+            }
+
+            else {
+//            False
+                MyAlert myAlert = new MyAlert(getActivity());
+                myAlert.normalDialog("Cannot Upload User",
+                        "Please Try Again");
+
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void toolBarController() {
