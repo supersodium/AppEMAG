@@ -10,43 +10,70 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        app:theme="@style/Widget.AppCompat.Spinner.DropDown.ActionBar" />
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-
-    <!--content-->
-    <LinearLayout
-        android:background="#82ffffff"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/btnSingUp"
+    <ScrollView
         android:layout_below="@+id/toolbarSignUp"
-        android:layout_margin="@dimen/margin"
-        android:orientation="vertical"
-        android:padding="@dimen/padding">
+        android:layout_above="@+id/btnSingUp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <!--Name-->
-        <EditText
+        <!--content-->
+        <LinearLayout
+            android:background="#c8ffffff"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/name"
-            android:inputType="text" />
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin"
+            android:orientation="vertical"
+            android:padding="@dimen/padding">
 
-        <!--User-->
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/user"
-            android:inputType="text" />
+            <!--Name-->
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                android:inputType="text" />
 
-        <!--Password-->
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/password"
-            android:inputType="text" />
+            <!--surname-->
+            <EditText
+                android:id="@+id/edtSurname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/surname"
+                android:inputType="text" />
+
+            <!--id student-->
+            <EditText
+                android:id="@+id/edtIDstudent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/id_student"
+                android:inputType="number" />
+
+            <!--User-->
+            <EditText
+                android:id="@+id/edtUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user"
+                android:inputType="text" />
+
+            <!--Password-->
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:inputType="text" />
 
 
-    </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
 
     <!--Button SignUp-->
     <Button

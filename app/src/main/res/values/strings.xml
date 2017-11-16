@@ -4,4 +4,8 @@
     <string name="password">Password :</string>
     <string name="name">Name :</string>
     <string name="new_register">New register</string>
+    <string name="surname">surname :</string>
+    <string name="id_student">ID student : ext 123456789</string>
+    <string name="title_have_space">Have Space</string>
+    <string name="message_have_space">Please Fill Every Blank</string>
 </resources>

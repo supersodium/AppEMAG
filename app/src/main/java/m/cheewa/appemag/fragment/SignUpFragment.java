@@ -7,15 +7,22 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import m.cheewa.appemag.MainActivity;
 import m.cheewa.appemag.R;
+import m.cheewa.appemag.utility.MyAlert;
 
 /**
  * Created by User on 8/9/2560.
  */
 
-public class SignUpFragment extends Fragment{
+public class SignUpFragment extends Fragment {
+
+    //    Explicit
+    private String nameString, surnameString, idStudentString, userString, passwordString;
+
 
     @Nullable
     @Override
@@ -34,15 +41,57 @@ public class SignUpFragment extends Fragment{
 
         //ToolBar Controller
         toolBarController();
+
+//        SignUp Controller
+        signUpController();
+
+
+    }   // Main Method
+
+    private void signUpController() {
+        Button button = getView().findViewById(R.id.btnSingUp);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                Initial view
+                EditText nameEditText = getView().findViewById(R.id.edtName);
+                EditText surnameEditText = getView().findViewById(R.id.edtSurname);
+                EditText idStudentEditText = getView().findViewById(R.id.edtIDstudent);
+                EditText userEditText = getView().findViewById(R.id.edtUser);
+                EditText passwordEditText = getView().findViewById(R.id.edtPassword);
+
+//                Get Value From EdiText
+                nameString = nameEditText.getText().toString().trim();
+                surnameString = surnameEditText.getText().toString().trim();
+                idStudentString = idStudentEditText.getText().toString().trim();
+                userString = userEditText.getText().toString().trim();
+                passwordString = passwordEditText.getText().toString().trim();
+
+//                Check Space
+                if (nameString.isEmpty() ||
+                        surnameString.isEmpty() ||
+                        idStudentString.isEmpty()||
+                        userString.isEmpty() ||
+                        passwordString.isEmpty()) {
+//                    Have Space
+                    MyAlert myAlert = new MyAlert(getActivity());
+                    myAlert.normalDialog(getString(R.string.title_have_space),getString(R.string.message_have_space));
+
+                }
+
+
+            }   //onClick
+        });
     }
 
     private void toolBarController() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarSignUp);
-        ((MainActivity)getActivity()).getSupportActionBar(toolbar);
-        ((MainActivity)getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
-        ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((MainActivity) getActivity()).setSupportActionBar(toolbar);
+        ((MainActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ((MainActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.new_register));
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.new_register));
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,8 +99,6 @@ public class SignUpFragment extends Fragment{
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
-
-
 
 
     }
