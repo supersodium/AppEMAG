@@ -3,6 +3,7 @@ package m.cheewa.appemag.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +16,10 @@ import m.cheewa.appemag.R;
 
 public class ServiceFragment extends Fragment{
 
-    private String Tag = "17novV2";
+    private String tag = "17novV2";
     private String[] loginString;
 
-    public ServiceFragment serviceInstance(String[] loginStrings) {
+    public static ServiceFragment serviceInstance(String[] loginStrings) {
 
         ServiceFragment serviceFragment = new ServiceFragment();
         Bundle bundle = new Bundle();
@@ -34,6 +35,10 @@ public class ServiceFragment extends Fragment{
         super.onActivityCreated(savedInstanceState);
 
 //        Get Value From Argument
+        loginString = getArguments().getStringArray("Login");
+        for (int i=0; i<loginString.length; i+=1 ) {
+            Log.d(tag, "Login[" + i + "]==> " + loginString[i]);
+        }
 
 
 

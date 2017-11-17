@@ -1,5 +1,7 @@
 package m.cheewa.appemag.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -135,6 +137,13 @@ public class MainFragment extends Fragment{
                 Toast.makeText(getActivity(),"Welcom" + loginString[1],
                         Toast.LENGTH_SHORT).show();
 
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentMainFragment, ServiceFragment.serviceInstance(loginString))
+                        .commit();
+
+
+
             } else {
 //                Password False
                 myAlert.normalDialog("Password False",
@@ -148,6 +157,8 @@ public class MainFragment extends Fragment{
         }
 
     }
+
+
 
     private void newRegisterController() {
         TextView textView = getView().findViewById(R.id.textNewRegister);
