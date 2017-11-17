@@ -10,7 +10,7 @@ public class MyConstant {
 
     //    URL
     private String urlPostUserString = "http://androidthai.in.th/dium/addDatadium.php";
-
+    private String urlGetUserString = "http://androidthai.in.th/dium/getAllDatadium.php";
 
     //    Array
     private String[] columnUserStrings = new String[]{"id", "Name", "Surname", "ID_Student", "User", "Password"};
@@ -18,6 +18,10 @@ public class MyConstant {
 
 //    getter
 
+
+    public String getUrlGetUserString() {
+        return urlGetUserString;
+    }
 
     public String getUrlPostUserString() {
         return urlPostUserString;
