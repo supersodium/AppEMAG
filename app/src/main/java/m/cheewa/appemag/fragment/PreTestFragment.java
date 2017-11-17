@@ -60,7 +60,16 @@ public class PreTestFragment extends Fragment {
         ((MainActivity) getActivity()).getSupportActionBar().setTitle(titleUnitStrings[anInt]);
         ((MainActivity) getActivity()).getSupportActionBar().setSubtitle(loginStrings[1]+ " "+loginStrings[2]);
 
-
+        ((MainActivity)getActivity()).getSupportActionBar()
+                .setHomeButtonEnabled(true);
+        ((MainActivity)getActivity()).getSupportActionBar()
+                .setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
 
     }
 
