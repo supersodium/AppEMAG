@@ -14,10 +14,17 @@ public class MyConstant {
 
     //    Array
     private String[] columnUserStrings = new String[]{"id", "Name", "Surname", "ID_Student", "User", "Password"};
-
+    private String[] unitStrings = new String[]{
+            "วิเคราะห์เวคเตอร์",
+            "สนามแม่เหล็ก",
+            "ไฟฟ้าสถิต"};
 
 //    getter
 
+
+    public String[] getUnitStrings() {
+        return unitStrings;
+    }
 
     public String getUrlGetUserString() {
         return urlGetUserString;
