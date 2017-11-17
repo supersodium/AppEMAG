@@ -57,7 +57,10 @@ public class PreTestFragment extends Fragment {
 
         MyConstant myConstant = new MyConstant();
         titleUnitStrings = myConstant.getUnitStrings();
-        ((MainActivity) getActivity()).getSupportActionBar().setSubtitle(titleUnitStrings[anInt]);
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle(titleUnitStrings[anInt]);
+        ((MainActivity) getActivity()).getSupportActionBar().setSubtitle(loginStrings[1]+ " "+loginStrings[2]);
+
+
 
     }
 
