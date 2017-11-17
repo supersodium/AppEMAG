@@ -6,15 +6,21 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import m.cheewa.appemag.R;
+import m.cheewa.appemag.utility.MyAlert;
 
 /**
  * Created by User on 8/9/2560.
  */
 
 public class MainFragment extends Fragment{
+
+//    Explicit
+    private String userString, passwordString;
 
     @Nullable
     @Override
@@ -33,7 +39,45 @@ public class MainFragment extends Fragment{
         //NewRegister Controller
         newRegisterController();
 
+//        Login Controller
+        loginController();
+
+
     }   //onActivityCreate
+
+    private void loginController() {
+        Button button = getView().findViewById(R.id.btnLogin);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                Initial View
+                EditText userEditText = getView().findViewById(R.id.edtuser);
+                EditText passwordText = getView().findViewById(R.id.edtPassword);
+
+//                Get Value From EditText
+                userString = userEditText.getText().toString().trim();
+                passwordString = passwordText.getText().toString().trim();
+
+
+//                Check Speace
+                if (userString.isEmpty()||passwordString.isEmpty() ){
+//                    Have Space
+                    MyAlert myAlert = new MyAlert(getActivity());
+                    myAlert.normalDialog(getString(R.string.title_have_space),
+                            getString(R.string.message_have_space));
+
+                }
+
+                else {
+
+//                    No Space
+                }
+            }
+        });
+
+
+    }
 
     private void newRegisterController() {
         TextView textView = getView().findViewById(R.id.textNewRegister);
