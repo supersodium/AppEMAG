@@ -8,4 +8,7 @@
     <string name="id_student">ID student : ext 123456789</string>
     <string name="title_have_space">Have Space</string>
     <string name="message_have_space">Please Fill Every Blank</string>
+    <string name="unit1">Unit1</string>
+    <string name="unit2">Unit2</string>
+    <string name="unit3">Unit3</string>
 </resources>
