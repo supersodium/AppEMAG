@@ -3,11 +3,13 @@ package m.cheewa.appemag.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import m.cheewa.appemag.MainActivity;
 import m.cheewa.appemag.R;
 
 /**
@@ -35,16 +37,27 @@ public class ServiceFragment extends Fragment{
         super.onActivityCreated(savedInstanceState);
 
 //        Get Value From Argument
+        getValueFromArgument();
+
+//        Create Toolbar
+        createToolbar();
+
+
+    }  // Main method
+
+    private void createToolbar() {
+        Toolbar toolbar = getView().findViewById(R.id.toolbarService);
+        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.title_service));
+        ((MainActivity) getActivity()).getSupportActionBar().setSubtitle(loginString[1] + "" +loginString[2]);
+    }
+
+    private void getValueFromArgument() {
         loginString = getArguments().getStringArray("Login");
         for (int i=0; i<loginString.length; i+=1 ) {
             Log.d(tag, "Login[" + i + "]==> " + loginString[i]);
         }
-
-
-
-
-
-    }  // Main method
+    }
 
     @Nullable
     @Override
