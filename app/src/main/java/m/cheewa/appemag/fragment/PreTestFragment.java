@@ -3,13 +3,16 @@ package m.cheewa.appemag.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import m.cheewa.appemag.MainActivity;
 import m.cheewa.appemag.R;
+import m.cheewa.appemag.utility.MyConstant;
 
 /**
  * Created by kik on 11/17/2017.
@@ -19,6 +22,8 @@ public class PreTestFragment extends Fragment {
 
     private String[] loginStrings;
     private String tag = "17novV3";
+    private String[] titleUnitStrings;
+    private int anInt = 0;
 
     public static PreTestFragment preTestFragment(String[] loginStrings,
                                                   int indexUnit) {
@@ -38,13 +43,34 @@ public class PreTestFragment extends Fragment {
         // GetValue Argument
         getValueArgument();
 
+//        Create Toolbar
+        createToolbar();
+
     }   // Main Method
 
+    private void createToolbar() {
+
+
+        Toolbar toolbar = getView().findViewById(R.id.toolbarPertest);
+
+        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+
+        MyConstant myConstant = new MyConstant();
+        titleUnitStrings = myConstant.getUnitStrings();
+        ((MainActivity) getActivity()).getSupportActionBar().setSubtitle(titleUnitStrings[anInt]);
+
+    }
+
     private void getValueArgument() {
+
         loginStrings = getArguments().getStringArray("Login");
         for (int i=0; i<loginStrings.length; i+=1 ) {
             Log.d(tag, "Login[" + i + "]==> " + loginStrings[i]);
         }
+
+        anInt = getArguments().getInt("Index");
+
+
     }
 
     @Nullable

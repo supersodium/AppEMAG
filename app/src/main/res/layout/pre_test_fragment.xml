@@ -6,12 +6,12 @@
 
 
     <!--Toolbar-->
-    <include layout="@layout/my_toolbar" android:id="@+id/my_toolbar"/>
-
+    <include
+        android:id="@+id/toolbarPertest"
+        layout="@layout/my_toolbar" />
 
 
     <!--Content-->
-
 
 
 </LinearLayout>
