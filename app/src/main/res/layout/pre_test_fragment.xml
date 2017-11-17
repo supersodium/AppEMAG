@@ -12,6 +12,34 @@
 
 
     <!--Content-->
+    <ScrollView
+        android:background="#c8ffffff"
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="16dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--Question-->
+
+            <!--Image-->
+
+            <!--Choice-->
+
+            <!--Buttom Answer-->
+
+
+
+
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
 
 
 </LinearLayout>
