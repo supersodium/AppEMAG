@@ -19,8 +19,15 @@ public class MyConstant {
             "สนามแม่เหล็ก",
             "ไฟฟ้าสถิต"};
 
+    private String[] columnQuestionStrings = new String[]{"id", "Subject", "Question", "ImageQuestion",
+            "Choice1", "Choice2", "Choice3", "Choice4", "Answer"};
+
 //    getter
 
+
+    public String[] getColumnQuestionStrings() {
+        return columnQuestionStrings;
+    }
 
     public String getUrlGetQuestionWhereSubject() {
         return urlGetQuestionWhereSubject;
