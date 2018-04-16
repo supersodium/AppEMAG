@@ -11,7 +11,7 @@ public class MyConstant {
     //    URL
     private String urlPostUserString = "http://androidthai.in.th/dium/addDatadium.php";
     private String urlGetUserString = "http://androidthai.in.th/dium/getAllDatadium.php";
-
+    private String urlGetQuestionWhereSubject = "http://androidthai.in.th/dium/getQuestionWhereSubject.php";
     //    Array
     private String[] columnUserStrings = new String[]{"id", "Name", "Surname", "ID_Student", "User", "Password"};
     private String[] unitStrings = new String[]{
@@ -21,6 +21,10 @@ public class MyConstant {
 
 //    getter
 
+
+    public String getUrlGetQuestionWhereSubject() {
+        return urlGetQuestionWhereSubject;
+    }
 
     public String[] getUnitStrings() {
         return unitStrings;

@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import m.cheewa.appemag.MainActivity;
 import m.cheewa.appemag.R;
+import m.cheewa.appemag.utility.GetQuestionWhereSubject;
 import m.cheewa.appemag.utility.MyConstant;
 
 /**
@@ -46,7 +47,36 @@ public class PreTestFragment extends Fragment {
 //        Create Toolbar
         createToolbar();
 
+
+//        Question
+        question();
+
     }   // Main Method
+
+    private void question() {
+
+        try {
+
+
+            MyConstant myConstant = new MyConstant();
+            GetQuestionWhereSubject getQuestionWhereSubject = new GetQuestionWhereSubject(getActivity());
+            getQuestionWhereSubject.execute(titleUnitStrings[anInt],
+                    myConstant.getUrlGetQuestionWhereSubject());
+
+            String jsonString = getQuestionWhereSubject.get();
+
+            Log.d("16AprilV1","JSON==>" + jsonString);
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+
+    }
 
     private void createToolbar() {
 
