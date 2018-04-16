@@ -1,45 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-
-    <!--Toolbar-->
-    <include
-        android:id="@+id/toolbarPertest"
-        layout="@layout/my_toolbar" />
-
-
-    <!--Content-->
-    <ScrollView
-        android:background="#c8ffffff"
-        android:layout_margin="16dp"
+    <LinearLayout
+        android:layout_above="@id/btnAnswer"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:padding="16dp"
-            android:orientation="vertical"
+
+        <!--Toolbar-->
+        <include
+            android:id="@+id/toolbarPertest"
+            layout="@layout/my_toolbar" />
+
+
+        <!--Content-->
+        <ScrollView
+            android:background="#c8ffffff"
+            android:layout_margin="16dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <LinearLayout
+                android:padding="16dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <!--Question-->
+                <!--Question-->
+                <TextView
+                    android:id="@+id/txtQuestion"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/h1"
+                    android:text="1.Question ?"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-            <!--Image-->
+                <!--Image-->
+                <ImageView
+                    android:id="@+id/imgQuestion"
+                    android:layout_margin="@dimen/margin2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-            <!--Choice-->
+                <!--Choice-->
+                <RadioGroup
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <!--Buttom Answer-->
+                    <RadioButton
+                        android:id="@+id/redChoice1"
+                        android:textSize="@dimen/h2"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/demo_choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <RadioButton
+                        android:id="@+id/redChoice2"
+                        android:textSize="@dimen/h2"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/demo_choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <RadioButton
+                        android:id="@+id/redChoice3"
+                        android:textSize="@dimen/h2"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/demo_choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <RadioButton
+                        android:id="@+id/redChoice4"
+                        android:textSize="@dimen/h2"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/demo_choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RadioGroup>
 
 
 
 
-        </LinearLayout>
+
+
+            </LinearLayout>
 
 
 
 
-    </ScrollView>
+        </ScrollView>
 
 
-</LinearLayout>
+    </LinearLayout>
+
+
+
+    <!--Buttom Answer-->
+    <Button
+        android:text="Answer"
+        android:id="@+id/btnAnswer"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>
