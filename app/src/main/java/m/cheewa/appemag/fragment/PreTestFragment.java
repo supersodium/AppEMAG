@@ -37,7 +37,10 @@ public class PreTestFragment extends Fragment {
     private String[] titleUnitStrings;
     private int anInt = 0;
     private int timesAnInt = 0;
-    private ArrayList<String> stringArrayList;
+    private int scoreAnInt = 0;
+    private int chooseAnInt = 0;
+    private int trueChooseAnInt = 0;
+    private ArrayList<String> stringArrayList,trueChooseStringArrayList;
 
     private TextView questiontextView;
     private ImageView imageView;
@@ -69,6 +72,8 @@ public class PreTestFragment extends Fragment {
 //        Create Toolbar
         createToolbar();
 
+//    Radio Controller
+        radioController();
 
 //        Question
         question();
@@ -78,6 +83,31 @@ public class PreTestFragment extends Fragment {
 
     }   // Main Method
 
+    private void radioController() {
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+
+                switch (checkedId) {
+                    case R.id.redChoice1:
+                        chooseAnInt = 1;
+                        break;
+                    case R.id.redChoice2:
+                        chooseAnInt = 2;
+                        break;
+                    case R.id.redChoice3:
+                        chooseAnInt = 3;
+                        break;
+                    case R.id.redChoice4:
+                        chooseAnInt = 4;
+                        break;
+                }
+
+            }
+        });
+    }
+
     private void answerController() {
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,26 +115,36 @@ public class PreTestFragment extends Fragment {
                 if (checkChoose()) {
                     // Non Choose
                     MyAlert myAlert = new MyAlert(getActivity());
-                    myAlert.normalDialog("Non choose","Please choose choice Answer");
+                    myAlert.normalDialog("Non choose", "Please choose choice Answer");
                 } else {
 
                     // Calculator Score
 
 
-                    if (timesAnInt < stringArrayList.size()) {
-                        timesAnInt+=1;
+
+                    if (chooseAnInt == trueChooseAnInt) {
+                        scoreAnInt += 1;
+                    }
+
+                    if (timesAnInt < stringArrayList.size()-1) {
+
+
+
+
+
+                        timesAnInt += 1;
                         showQuestion();
 
                     } else {
-                     // Conclusion
-
+                        // Conclusion
+                        Log.d("7MayV1","Score ==>" +scoreAnInt);
+                        Log.d("7MayV1","All ==>" +stringArrayList.size());
 
 
                     }
 
 
                 } //if1
-
 
 
             }   // onClick
@@ -151,12 +191,13 @@ public class PreTestFragment extends Fragment {
 
             JSONArray jsonArray = new JSONArray(jsonString);
             String[] columnString = myConstant.getColumnQuestionStrings();
-             stringArrayList = new ArrayList<>();
+            stringArrayList = new ArrayList<>();
+            trueChooseStringArrayList = new ArrayList<>();
 
             for (int i = 0; i < jsonArray.length(); i += 1) {
 
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                ArrayList<String>  stringArrayList1 = new ArrayList<>();
+                ArrayList<String> stringArrayList1 = new ArrayList<>();
                 for (int i1 = 2; i1 < columnString.length; i1 += 1) {
 
                     stringArrayList1.add(jsonObject.getString(columnString[i1]));
@@ -183,31 +224,36 @@ public class PreTestFragment extends Fragment {
     }
 
     private void showQuestion() {
+
+        radioGroup.clearCheck();
+
         String s = stringArrayList.get(timesAnInt);
 
-        Log.d("16AprilV4","s==>"+s);
+        Log.d("16AprilV4", "s==>" + s);
 
-        s = s.substring(1,s.length()-1);
-        Log.d("16AprilV4","sต ่อมา ==>"+s);
+        s = s.substring(1, s.length() - 1);
+        Log.d("16AprilV4", "sต ่อมา ==>" + s);
 
         String[] strings = s.split(",");
-        for (int i=0;i<strings.length; i+=1) {
+        for (int i = 0; i < strings.length; i += 1) {
 
-            Log.d("16AprilV4","strings["+i+"]==>"+strings[i]);
+            Log.d("16AprilV4", "strings[" + i + "]==>" + strings[i]);
 
         }
 
-        QuestionModel questionModel = new QuestionModel(strings[0],strings[1],
-                strings[2],strings[3],strings[4],strings[5],strings[6]);
+        QuestionModel questionModel = new QuestionModel(strings[0], strings[1],
+                strings[2], strings[3], strings[4], strings[5], strings[6]);
 
 
-        int i = timesAnInt +1;
+        int i = timesAnInt + 1;
 
-        questiontextView.setText(Integer.toString(i) +". "+questionModel.getQuestionString());
+        questiontextView.setText(Integer.toString(i) + ". " + questionModel.getQuestionString());
         choice1RadioButton.setText("ก. " + questionModel.getChoice1String());
         choice2RadioButton.setText("ข. " + questionModel.getChoice2String());
         choice3RadioButton.setText("ค. " + questionModel.getChoice3String());
         choice4RadioButton.setText("ง. " + questionModel.getChoice4String());
+        trueChooseAnInt = Integer.parseInt(questionModel.getAnswerString().trim());
+
 
 
 
