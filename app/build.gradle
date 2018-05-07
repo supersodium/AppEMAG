@@ -28,4 +28,5 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     implementation 'com.squareup.okhttp:okhttp:2.0.0'
+    implementation 'com.github.barteksc:android-pdf-viewer:2.0.3'
 }

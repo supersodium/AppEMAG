@@ -15,15 +15,21 @@ public class MyConstant {
     //    Array
     private String[] columnUserStrings = new String[]{"id", "Name", "Surname", "ID_Student", "User", "Password"};
     private String[] unitStrings = new String[]{
-            "วิเคราะห์เวคเตอร์",
-            "สนามแม่เหล็ก",
-            "ไฟฟ้าสถิต"};
+            "วิเคราะห์เวกเตอร์",
+            "ระบบพิกัดและการแปลงเวกเตอร์",
+            "สนามไฟฟ้า"};
 
     private String[] columnQuestionStrings = new String[]{"id", "Subject", "Question", "ImageQuestion",
             "Choice1", "Choice2", "Choice3", "Choice4", "Answer"};
 
+    private String[] pdfStrings = new String[]{"chapter1.pdf","chapter2.pdf","chapter3.pdf"};
+
 //    getter
 
+
+    public String[] getPdfStrings() {
+        return pdfStrings;
+    }
 
     public String[] getColumnQuestionStrings() {
         return columnQuestionStrings;

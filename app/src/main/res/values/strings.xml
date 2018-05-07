@@ -15,6 +15,7 @@
 
     <string name="title_service">Please Choose Unit</string>
     <string name="demo_choice">ก. นี่คือตัวเลือกที่ 1</string>
+    <string name="read_content">ไปที่เนื้อหา</string>
 
 
 </resources>

@@ -141,6 +141,20 @@ public class PreTestFragment extends Fragment {
                         Log.d("7MayV1","All ==>" +stringArrayList.size());
 
 
+
+//                        Replace ShowScoreFragment
+                        getActivity()
+                                .getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.contentMainFragment,
+                                        ShowScoreFragment.showScoreInstance(
+                                                titleUnitStrings[anInt],
+                                                scoreAnInt,
+                                                stringArrayList.size(),
+                                                anInt, loginStrings))
+                                .commit();
+
+
                     }
 
 
@@ -252,10 +266,22 @@ public class PreTestFragment extends Fragment {
         choice2RadioButton.setText("ข. " + questionModel.getChoice2String());
         choice3RadioButton.setText("ค. " + questionModel.getChoice3String());
         choice4RadioButton.setText("ง. " + questionModel.getChoice4String());
-        trueChooseAnInt = Integer.parseInt(questionModel.getAnswerString().trim());
+        trueChooseAnInt = checkTrueChoose(questionModel.getAnswerString().trim());
 
 
+    }
 
+    private int checkTrueChoose(String answerString)
+    {
+        try
+        {
+
+            return Integer.parseInt(answerString);
+
+        } catch (Exception e)
+        {
+            return 1;
+        }
 
 
     }
