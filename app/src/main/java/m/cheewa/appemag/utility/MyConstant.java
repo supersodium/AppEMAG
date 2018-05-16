@@ -9,6 +9,7 @@ import java.net.URL;
 public class MyConstant {
 
     //    URL
+    private String urlGetAllQuestion = "http://androidthai.in.th/dium/getAllQuestion.php";
     private String urlPostUserString = "http://androidthai.in.th/dium/addDatadium.php";
     private String urlGetUserString = "http://androidthai.in.th/dium/getAllDatadium.php";
     private String urlGetQuestionWhereSubject = "http://androidthai.in.th/dium/getQuestionWhereSubject.php";
@@ -17,7 +18,9 @@ public class MyConstant {
     private String[] unitStrings = new String[]{
             "วิเคราะห์เวกเตอร์",
             "ระบบพิกัดและการแปลงเวกเตอร์",
-            "สนามไฟฟ้า"};
+            "สนามไฟฟ้า",
+            "แบบทดสอบก่อนเรียน",
+            "แบบทดสอบหลังเรียน"};
 
     private String[] columnQuestionStrings = new String[]{"id", "Subject", "Question", "ImageQuestion",
             "Choice1", "Choice2", "Choice3", "Choice4", "Answer"};
@@ -26,6 +29,10 @@ public class MyConstant {
 
 //    getter
 
+
+    public String getUrlGetAllQuestion() {
+        return urlGetAllQuestion;
+    }
 
     public String[] getPdfStrings() {
         return pdfStrings;

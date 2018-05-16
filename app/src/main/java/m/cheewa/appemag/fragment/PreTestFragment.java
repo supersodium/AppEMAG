@@ -14,6 +14,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 
 import m.cheewa.appemag.MainActivity;
 import m.cheewa.appemag.R;
+import m.cheewa.appemag.utility.GetAllData;
 import m.cheewa.appemag.utility.GetQuestionWhereSubject;
 import m.cheewa.appemag.utility.MyAlert;
 import m.cheewa.appemag.utility.MyConstant;
@@ -40,7 +43,7 @@ public class PreTestFragment extends Fragment {
     private int scoreAnInt = 0;
     private int chooseAnInt = 0;
     private int trueChooseAnInt = 0;
-    private ArrayList<String> stringArrayList,trueChooseStringArrayList;
+    private ArrayList<String> stringArrayList,trueChooseStringArrayList,imageStringArrayList;
 
     private TextView questiontextView;
     private ImageView imageView;
@@ -195,11 +198,14 @@ public class PreTestFragment extends Fragment {
 
 
             MyConstant myConstant = new MyConstant();
-            GetQuestionWhereSubject getQuestionWhereSubject = new GetQuestionWhereSubject(getActivity());
-            getQuestionWhereSubject.execute(titleUnitStrings[anInt],
-                    myConstant.getUrlGetQuestionWhereSubject());
+//            GetQuestionWhereSubject getQuestionWhereSubject = new GetQuestionWhereSubject(getActivity());
+//            getQuestionWhereSubject.execute(titleUnitStrings[anInt],
+//                    myConstant.getUrlGetQuestionWhereSubject());
+//            String jsonString = getQuestionWhereSubject.get();
 
-            String jsonString = getQuestionWhereSubject.get();
+            GetAllData getAllData = new GetAllData(getActivity());
+            getAllData.execute(myConstant.getUrlGetAllQuestion());
+            String jsonString = getAllData.get();
 
             Log.d("16AprilV1", "JSON==>" + jsonString);
 
@@ -207,6 +213,7 @@ public class PreTestFragment extends Fragment {
             String[] columnString = myConstant.getColumnQuestionStrings();
             stringArrayList = new ArrayList<>();
             trueChooseStringArrayList = new ArrayList<>();
+            imageStringArrayList = new ArrayList<>();
 
             for (int i = 0; i < jsonArray.length(); i += 1) {
 
@@ -262,6 +269,25 @@ public class PreTestFragment extends Fragment {
         int i = timesAnInt + 1;
 
         questiontextView.setText(Integer.toString(i) + ". " + questionModel.getQuestionString());
+
+        String urlImage = questionModel.getImageQuestionString();
+        urlImage = urlImage.trim();
+        Log.d("16MayV1","Url==>"+urlImage);
+
+        if (urlImage.length()!=0) {
+
+            try {
+
+                Picasso.get()
+                        .load(urlImage)
+                        .resize(300,300)
+                        .into(imageView);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         choice1RadioButton.setText("ก. " + questionModel.getChoice1String());
         choice2RadioButton.setText("ข. " + questionModel.getChoice2String());
         choice3RadioButton.setText("ค. " + questionModel.getChoice3String());

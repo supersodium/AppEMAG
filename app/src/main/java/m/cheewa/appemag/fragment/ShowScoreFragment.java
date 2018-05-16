@@ -44,10 +44,35 @@ public class ShowScoreFragment extends Fragment{
 //        Create toolbar
         createToolbar();
 
-        readController();
+//        readController();
+
+//        Back Controller
+        backController();
 
 
     }  //    Main Method
+
+    private void backController() {
+        Button button = getView().findViewById(R.id.btnContent);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                getActivity().getSupportFragmentManager().popBackStack();
+
+
+                getActivity().getSupportFragmentManager().popBackStack();
+
+                String[] loginStrings = getArguments().getStringArray("Login");
+
+                getActivity()
+                        .getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentMainFragment, ServiceFragment.serviceInstance(loginStrings))
+                        .commit();
+
+            }
+        });
+    }
 
     private void readController() {
 

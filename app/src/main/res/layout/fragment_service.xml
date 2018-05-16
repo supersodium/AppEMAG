@@ -1,49 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <!--Toolbar-->
-    <include
-        android:id="@+id/toolbarService"
-        layout="@layout/my_toolbar"  />
+    <Button
+        android:textSize="@dimen/h2"
+        android:id="@+id/btnLogOut"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/colorPrimary"
+        android:text="Quit"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content" />
 
-    <!--Content-->
+
     <LinearLayout
-        android:layout_margin="50dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <!--Unit1-->
-        <Button
-            android:id="@+id/btnUnit1"
-            android:tag="Unit1"
+        <!--Toolbar-->
+        <include
+            android:id="@+id/toolbarService"
+            layout="@layout/my_toolbar"  />
+
+        <!--Content-->
+        <LinearLayout
+            android:layout_margin="50dp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+
+            <!--First Test-->
+            <Button
+                android:id="@+id/btnFirstTest"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+            </Button>
+
+            <!--Unit1-->
+            <Button
+                android:id="@+id/btnUnit1"
+                android:tag="Unit1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <!--Unit2-->
+            <Button
+                android:id="@+id/btnUnit2"
+                android:tag="Unit2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <!--Unit3-->
+            <Button
+                android:id="@+id/btnUnit3"
+                android:tag="@string/unit3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!--Last Test-->
+            <Button
+                android:id="@+id/btnLastTest"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+            </Button>
 
 
 
-        <!--Unit2-->
-        <Button
-            android:id="@+id/btnUnit2"
-            android:tag="Unit2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
-
-
-        <!--Unit3-->
-        <Button
-            android:id="@+id/btnUnit3"
-            android:tag="@string/unit3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        </LinearLayout>
 
 
 
     </LinearLayout>
 
-</LinearLayout>
+
+
+</RelativeLayout>
 

@@ -56,8 +56,62 @@ public class ServiceFragment extends Fragment{
 //        Unit3 Controller
         unit3Controller();
 
+//        FirstTest Controller
+        firstTestController();
+
+//        LastTest Controller
+        lastTestController();
+
+//        Quit Controller
+        quitController();
+
 
     }  // Main method
+
+    private void quitController() {
+        Button button = getView().findViewById(R.id.btnLogOut);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
+    }
+
+    private void lastTestController() {
+        Button button = getView().findViewById(R.id.btnLastTest);
+        button.setText(unitStrings[4]);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity()
+                        .getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentMainFragment,PreTestFragment.preTestFragment(loginString,4))
+                        .addToBackStack(null)
+                        .commit();
+
+            }
+        });
+    }
+
+    private void firstTestController() {
+        Button button = getView().findViewById(R.id.btnFirstTest);
+        button.setText(unitStrings[3]);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity()
+                        .getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.contentMainFragment,PreTestFragment.preTestFragment(loginString,3))
+                        .addToBackStack(null)
+                        .commit();
+
+
+            }
+        });
+    }
 
     private void getUnit() {
         MyConstant myConstant = new MyConstant();
@@ -73,8 +127,7 @@ public class ServiceFragment extends Fragment{
 
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.contentMainFragment,
-                                PreTestFragment.preTestFragment(loginString, 0 ))
+                        .replace(R.id.contentMainFragment, ReadPdfFragment.readpdfInstance(0,loginString))
                         .addToBackStack(null).commit();
 
             }
@@ -93,7 +146,7 @@ public class ServiceFragment extends Fragment{
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.contentMainFragment,
-                                PreTestFragment.preTestFragment(loginString, 1 ))
+                                ReadPdfFragment.readpdfInstance(1,loginString))
                         .addToBackStack(null).commit();
 
             }
@@ -112,7 +165,7 @@ public class ServiceFragment extends Fragment{
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.contentMainFragment,
-                                PreTestFragment.preTestFragment(loginString, 2 ))
+                                ReadPdfFragment.readpdfInstance(2,loginString))
                         .addToBackStack(null).commit();
 
             }
