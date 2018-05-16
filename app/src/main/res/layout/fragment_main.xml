@@ -29,7 +29,7 @@
         <!--User-->
         <EditText
             android:id="@+id/edtuser"
-            android:layout_width="@dimen/text_feild"
+            android:layout_width="@dimen/text_field"
             android:layout_height="wrap_content"
             android:hint="@string/user"
             android:inputType="text" />
@@ -37,7 +37,7 @@
         <!--Password-->
         <EditText
             android:id="@+id/edtPassword"
-            android:layout_width="@dimen/text_feild"
+            android:layout_width="@dimen/text_field"
             android:layout_height="wrap_content"
             android:hint="@string/password"
             android:inputType="textPassword" />
@@ -57,7 +57,7 @@
         <!--Button Login-->
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="@dimen/text_feild"
+            android:layout_width="@dimen/text_field"
             android:layout_height="wrap_content"
             android:text="login" />
     </LinearLayout>

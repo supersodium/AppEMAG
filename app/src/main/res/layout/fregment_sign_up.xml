@@ -81,7 +81,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="541220"
+        android:background="#541220"
         android:text="@string/new_register" />
 
 
